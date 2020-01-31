@@ -10,8 +10,15 @@
 -author("erlang").
 
 %% API
--export([numbers/2, modes/0]).
+-export([numbers/2, modes/0, test_numbers/1]).
 -export([numbers1/1, numbers2/1, numbers3/1, numbers3_child/2]).
+
+test_numbers(Amount)->
+  {
+    {first, timer:tc(fibonacci, numbers, [Amount, first])},
+    {second, timer:tc(fibonacci, numbers, [Amount, second])},
+    {third, timer:tc(fibonacci, numbers, [Amount, third])}
+  }.
 
 numbers(Count, Variant)
   when is_number(Count),
