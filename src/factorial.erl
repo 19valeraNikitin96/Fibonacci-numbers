@@ -14,10 +14,11 @@
 -export([factorial1/2, factorial3_child/0, factorial3/1, factorial2/1]).
 
 test_factorial(Number)->
-  {{first, timer:tc(factorial, factorial,[Number, first])},
+  {
+    {first, timer:tc(factorial, factorial,[Number, first])},
     {second, timer:tc(factorial, factorial,[Number, second])},
     {third, timer:tc(factorial, factorial,[Number, third])}
-    }.
+  }.
 
 factorial(0, _)->1;
 factorial(Number, _)
